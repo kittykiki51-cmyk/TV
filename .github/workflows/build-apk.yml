@@ -56,7 +56,9 @@ jobs:
           } > local.properties
 
       - name: Build leanback (TV) release APK
-        run: ./gradlew --no-configuration-cache :app:assembleLeanbackRelease
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-configuration-cache :app:assembleLeanbackRelease
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
